@@ -1468,7 +1468,9 @@ $.extend(Selectize.prototype, {
 				}
 
 				self.updatePlaceholder();
-				self.trigger('item_add', value, $item);
+				if (!silent) {
+					self.trigger('item_add', value, $item);
+				}
 				self.updateOriginalInput({silent: silent});
 			}
 		});
@@ -1509,7 +1511,12 @@ $.extend(Selectize.prototype, {
 			self.updatePlaceholder();
 			self.updateOriginalInput({silent: silent});
 			self.positionDropdown();
+			self.$dropdown.attr('style', 'display:none !important');
 			self.trigger('item_remove', value, $item);
+			setTimeout(function() {
+				self.close();
+				self.$dropdown.attr('style', 'display:none');
+			});
 		}
 	},
 
