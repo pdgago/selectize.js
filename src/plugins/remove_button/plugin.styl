@@ -1,0 +1,28 @@
+.selectize-control.plugin-remove_button
+	[data-value]
+		position relative
+		padding-right 20px !important
+
+	[data-value] .remove
+		z-index 1/* fixes ie bug (see #392) */
+		position absolute
+		top 0
+		right 0
+		bottom 0
+		width 18px
+		text-align center
+		font-weight bold
+		font-size 14px
+		color inherit
+		text-decoration none
+		display inline-block
+		line-height 22px
+
+		&:hover
+			text-decoration none
+
+	[data-value] .remove:hover
+		background rgba(0,0,0,0.05)
+
+	.disabled [data-value] .remove:hover
+		background none
